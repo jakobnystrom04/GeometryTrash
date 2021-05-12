@@ -29,6 +29,7 @@ public class Jump : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
+        //Space triggar hoppfunktion.
         {
             {
                 UfoJump();
@@ -36,6 +37,7 @@ public class Jump : MonoBehaviour
 
         }
         if (Input.GetKeyDown(KeyCode.Escape))
+        //Esc byter scen
         {
             SceneManager.LoadScene(menuLevel);
         }

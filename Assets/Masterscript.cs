@@ -31,6 +31,7 @@ public class Masterscript : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.Space))
+        // Hoppfunktion när space nedtrycks medan spelaren rör marken.
         {
             if (isGrounded)
             {
@@ -39,6 +40,7 @@ public class Masterscript : MonoBehaviour
 
         }
         else if (Input.GetKey(KeyCode.Escape))
+        // Om esc trycks så byts scenen.
         {
             SceneManager.LoadScene(menuLevel);
         }
@@ -48,6 +50,7 @@ public class Masterscript : MonoBehaviour
 
 
     void OnTriggerEnter2D(Collider2D other)
+    //Ifall Kolliderande objekt har en viss tag så triggas en funktion som defineras nedan.
     {
         if (other.CompareTag("Player"))
         {
@@ -68,6 +71,7 @@ public class Masterscript : MonoBehaviour
         
     }
     void OnTriggerStay2D(Collider2D other)
+    // Ifall space trycks medan objektet kolliderar med ett objekt som har tagen Orb så triggas en funktion som nämns innan.
     {
         if (other.CompareTag("Orb"))
         {
@@ -81,17 +85,20 @@ public class Masterscript : MonoBehaviour
 
 
     void Jump()
+    // Funktionen Jump()
     {
         rb.velocity = Vector2.up * jumpForce;
     }
 
     void Orb()
+    // Funktionen Orb()
     {
         rb.velocity = Vector2.up * padForce;
     }
 
    
     private void FixedUpdate()
+    // Ifall objektet rör ett objekt med layer ground, så stämmer isgrounded.
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundlayer);
     }
